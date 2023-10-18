@@ -9,11 +9,16 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { getCategory } from './redux/CategorySlice';
+import { getProduct } from './redux/productSlice';
+import { getItem } from './redux/itemSlice';
+import Electronics from './pages/Electronics';
+import Items from './pages/Electronics';
 
 function App() {
 
   const dispatch = useDispatch();
 
+  //get categories
   useEffect(() => {
     const fetchCategory = async () => {
       try {
@@ -25,7 +30,35 @@ function App() {
       }
     }
     fetchCategory();
-  }, [])
+  }, []);
+
+  //get products
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/admin/products');
+        dispatch(getProduct(response.data))
+        console.log('product-list', response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchProduct();
+  }, []);
+
+  //get items
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/admin/items');
+        dispatch(getItem(response.data))
+        console.log('Items-list', response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchItems();
+  }, []);
 
   return (
     < >
@@ -34,6 +67,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/addcategory' element={<AddCategoryForm />} />
         <Route path='/addproduct' element={<AddProductForm />} />
+        <Route path='/electronics' element={<Electronics />} />
       </Routes>
       <ToastContainer position='bottom-right' autoClose={3000}></ToastContainer>
     </>

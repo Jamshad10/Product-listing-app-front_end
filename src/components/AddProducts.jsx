@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { addProduct } from '../redux/productSlice';
+import AddItemForm from './AddItem';
 
 function AddProductForm() {
     const categories = useSelector((state) => state.category.category);
@@ -27,7 +28,7 @@ function AddProductForm() {
     };
 
     return (
-        <div className="flex items-center justify-center py-8">
+        <div className="flex items-center justify-around py-8">
             <form onSubmit={handleAddProduct}>
                 <h1>Add Product</h1>
 
@@ -75,6 +76,7 @@ function AddProductForm() {
                     Add New Product
                 </button>
             </form>
+            <AddItemForm />
         </div>
     );
 }
