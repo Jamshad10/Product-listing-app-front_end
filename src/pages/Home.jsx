@@ -21,7 +21,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              <Link to={''}>
+              <Link to={'/fashion'}>
                 <div
                   className="group cursor-pointer px-4 py-2 rounded-lg bg-white shadow-md hover:shadow-lg transition duration-300"
                 >
@@ -29,7 +29,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              <Link to={''}>
+              <Link to={'/appliances'}>
                 <div
                   className="group cursor-pointer px-4 py-2 rounded-lg bg-white shadow-md hover:shadow-lg transition duration-300"
                 >

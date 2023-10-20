@@ -13,6 +13,8 @@ import { getProduct } from './redux/productSlice';
 import { getItem } from './redux/itemSlice';
 import Electronics from './pages/Electronics';
 import Items from './pages/Electronics';
+import Fashion from './pages/Fashion';
+import Appliances from './pages/Appliances';
 
 function App() {
 
@@ -68,6 +70,8 @@ function App() {
         <Route path='/addcategory' element={<AddCategoryForm />} />
         <Route path='/addproduct' element={<AddProductForm />} />
         <Route path='/electronics' element={<Electronics />} />
+        <Route path='/fashion' element={<Fashion />} />
+        <Route path='/appliances' element={<Appliances />} />
       </Routes>
       <ToastContainer position='bottom-right' autoClose={3000}></ToastContainer>
     </>

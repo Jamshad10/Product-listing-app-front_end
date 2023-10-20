@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-export default function Electronics() {
+export default function Fashion() {
     const productList = useSelector((state) => state.products.products);
     const ItemsList = useSelector((state) => state.items.items);
 
-    const filterProducts = productList.filter((item) => item.category === 'Electronics');
-    const filterItems = ItemsList.filter((item) => item.category === 'Electronics');
+    const filterProducts = productList.filter((item) => item.category === 'Fashion');
+    const filterItems = ItemsList.filter((item) => item.category === 'Fashion');
 
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [initialItemCounts, setInitialItemCounts] = useState({});
-    const [showAll, setShowAll] = useState(false);
+    const [showAll, setShowAll] = useState(true); // Set showAll to true initially
 
     useEffect(() => {
         // Initialize the initial item counts for each category
@@ -27,7 +27,7 @@ export default function Electronics() {
         setSelectedCategory(category);
         const items = filterItems.filter((item) => item.products === category);
         setSelectedItems(items);
-        setShowAll(false);
+        setShowAll(false); // Set showAll to false when a category is selected
     };
 
     const showAllItems = () => {
@@ -43,7 +43,7 @@ export default function Electronics() {
             <div className="bg-gray-100">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-4">
-                        <h2 className="text-2xl font-bold text-gray-900">Electronics ({itemsLength})</h2>
+                        <h2 className="text-2xl font-bold text-gray-900">Fashion ({itemsLength})</h2>
 
                         <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
                             <div key="all" className="group relative">
@@ -81,11 +81,11 @@ export default function Electronics() {
 
             {/* List of Items based on selected category */}
             <div className="mx-24 my-8">
-                <div>
-                    <div>
+                <div className=''>
+                    <div className=''>
                         {selectedItems.map((item) => (
                             <ul className="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg" key={item._id}>
-                                <li className="w-full px-4 py-2 border-b border-gray-200 rounded-t-lg">{item.item}</li>
+                                <li className=" px-4 py-2 border-b border-gray-200 rounded-t-lg">{item.item}</li>
                             </ul>
                         ))}
                     </div>

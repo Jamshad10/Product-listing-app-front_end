@@ -34,8 +34,8 @@ function AddItemForm() {
 
     return (
         <div className="flex items-center justify-center py-8">
-            <form onSubmit={handleAddItem}>
-                <h1>Add Product</h1>
+            <form className='border rounded-lg px-4 py-4 shadow-xl' onSubmit={handleAddItem}>
+                <h1 className='text-2xl font-bold my-2'>Add Items</h1>
 
                 <div className="mb-6">
                     <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-900">

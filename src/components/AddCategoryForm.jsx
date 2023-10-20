@@ -30,8 +30,8 @@ function AddCategoryForm() {
 
     return (
         <div className='flex items-center justify-center py-8'>
-            <form onSubmit={handleAddCategory}>
-                <h1>Add Category</h1>
+            <form className='border rounded-lg px-4 py-4 shadow-xl' onSubmit={handleAddCategory}>
+                <h1 className='text-2xl font-bold my-2'>Add Category</h1>
                 <div className="mb-6">
                     <label htmlFor="category" className="block mb-2 text-sm font-medium text-gray-90">Category</label>
                     <input
